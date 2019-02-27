@@ -11,10 +11,12 @@ the allowed characters are more limited.  However, some troublesome
 characters are still avoided:
 
 *  The quote characters `'"` and not used.  This makes the encoding
-convenient for inlining binary data into source code.
+convenient for inlining binary data into source code and formats such
+as JSON.
 
 *  The backslash `\` is not used.  The backslash is widely used for
-escaping, even within quotes, in programming and mark-up languages.
+escaping, even within quotes, in programming languages, mark-up,
+and data serialization.
 
 *  The special XML/SGML/HTML characters `<>&` are not used, so binary
 data can be embedded into these documents.
@@ -24,8 +26,8 @@ used in HTTP cookies.
 
 In addition, G86 has these properties:
 
-*  Binary data of any length can be encoded.  _n_ bytes will be
-encoded as ⌈5&#xfeff;_n_/4⌉ characters.
+*  Binary data of any whole number of bytes can be encoded.  _n_
+bytes is encoded as ⌈5&#xfeff;_n_/4⌉ characters.
 
 *  The encoding preserves lexicographic order.
 
@@ -102,7 +104,7 @@ Put together, here is the whole G86 encoding:
 =g]l=Jv^0IJ}|l3/G
 ```
 
-Note its length is 17.
+Its length is 17 = ⌈5⋅13/4⌉ characters.
 
 A use case is representing a 128-bit (or longer) key or identifier.
 The 16 bytes expand to 20 characters.  Similarly, a 256-bit key would
@@ -113,8 +115,6 @@ hexadecimal digits of π:
 24 3f 6a 88 85 a3 08 d3 13 19 8a 2e 03 70 73 44
 a4 09 38 22 29 9f 31 d0 08 2e fa 98 ec 4e 6c 89
 ```
-
-243F6A8885A308D313198A2E03707344A4093822299F31D0082EFA98EC4E6C89
 
 Its G86 encoding:
 

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8b458e0d990904c43ea58b0a14e732df3d92341a510cfaa275b4c962e5fe57f2
+-- hash: e57baffead56d32819d6c4f601560be41201f7ed069beea41027ebf2032125a4
 
 name:           g86
 version:        0.1.0
@@ -38,6 +38,7 @@ executable g86
   build-depends:
       base >=4.9 && <5
     , bytestring >=0.10 && <0.11
+    , split >=0.2 && <0.3
     , vector >=0.12 && <0.13
   default-language: Haskell2010
 

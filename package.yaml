@@ -12,6 +12,8 @@ library: {}
 
 executable:
    main: main.hs
+   dependencies:
+      - split >= 0.2 && < 0.3
 
 dependencies:
    - base >= 4.9 && < 5

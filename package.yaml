@@ -1,0 +1,26 @@
+name: g86
+version: 0.1.0
+synopsis: G86 encoding.
+maintainer: Galen Huntington <galen@alumni.reed.edu>
+license: MIT
+category: Codec
+
+source-dirs:
+   - .
+
+library: {}
+
+executable:
+   main: main.hs
+
+dependencies:
+   - base >= 4.9 && < 5
+   - bytestring >= 0.10 && < 0.11
+   - vector >= 0.12 && < 0.13
+
+tests:
+   suite:
+      main: test.hs
+      dependencies:
+         - QuickCheck >= 2.12.6.1
+

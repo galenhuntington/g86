@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 750e99873ec87cd51f6b065c9a21c1b99168f9eda34ea57197c2c788371aff60
+-- hash: 8b458e0d990904c43ea58b0a14e732df3d92341a510cfaa275b4c962e5fe57f2
 
 name:           g86
 version:        0.1.0
@@ -12,6 +12,7 @@ synopsis:       G86 encoding.
 category:       Codec
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
 license:        MIT
+license-file:   LICENSE
 build-type:     Simple
 
 library

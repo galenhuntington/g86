@@ -28,8 +28,8 @@ emap :: V.Vector Int
 emap = V.fromListN 86 $ map fromEnum $ B.unpack alphabet
 
 dmap :: V.Vector Int64
-dmap = V.replicate 127 0 `V.update` V.map swap (V.indexed emap)
-   where swap (a, b) = (b, fromIntegral a)
+dmap = V.replicate 127 (-1) `V.update` V.map swap' (V.indexed emap)
+   where swap' (a, b) = (b, fromIntegral a)
 
 
 pow3 :: Int -> Int64
@@ -49,8 +49,11 @@ intToCode sz = map toB . toDigits 86 (sz+1) . shift
    where toB n = chr $ emap `V.unsafeIndex` fromIntegral n
          shift = case sz of 4 -> id; _ -> (* pow3 (4-sz))
 
-codeToInt :: String -> Int64
-codeToInt = foldl' (\ n b -> n*86 + b) 0 . mapMaybe ((dmap V.!?) . fromEnum)
+codeToDigits :: String -> [Int64]
+codeToDigits = filter (>=0) . mapMaybe ((dmap V.!?) . fromEnum)
+
+digitsToInt :: [Int64] -> Int64
+digitsToInt = foldl' (\ n b -> n*86 + b) 0
 
 intToBytes :: Int -> Int64 -> Builder
 intToBytes sz =
@@ -72,8 +75,8 @@ encode = mconcat . loop where
       where (a, b) = B.splitAt 4 x
 
 decode :: String -> ByteString
-decode = toStrict . toLazyByteString . mconcat . loop where
+decode = toStrict . toLazyByteString . mconcat . loop . codeToDigits where
    loop x | null x = []
-          | __     = intToBytes (length a) (codeToInt a) : loop b
+          | __     = intToBytes (length a) (digitsToInt a) : loop b
       where (a, b) = splitAt 5 x
 

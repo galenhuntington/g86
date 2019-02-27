@@ -57,3 +57,7 @@ main = do
    check "Initial segment failure." $
       quickCheckWithResult stdArgs {maxSuccess = 10000} prop_seg
 
+   --  Invalid characters such as whitespace are ignored.
+   checkeq "Invalid character not ignored."
+      (G86.decode "ab\rcd'' \\ ef \n") (G86.decode ",abcdef")
+

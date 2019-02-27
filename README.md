@@ -24,6 +24,11 @@ data can be embedded into these documents.
 *  The characters `,;` are not used, which allows the encoding to be
 used in HTTP cookies.
 
+*  As noted, the space character (codepoint 32) is not used.  This
+allows free interspersing of whitespace, and means line-breaking and
+indenting will not compromise the data.  This is also a requirement
+for cookies.
+
 In addition, G86 has these properties:
 
 *  Binary data of any whole number of bytes can be encoded.  _n_

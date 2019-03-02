@@ -10,7 +10,7 @@ The encoding uses nearly all non-space printable ASCII characters
 the allowed characters are more limited.  However, some troublesome
 characters are still avoided:
 
-*  The quote characters `'"` and not used.  This makes the encoding
+*  The quote characters `"'` and not used.  This makes the encoding
 convenient for inlining binary data into source code and formats such
 as JSON.
 
@@ -18,7 +18,7 @@ as JSON.
 escaping, even within quotes, in programming languages, mark-up,
 and data serialization.
 
-*  The special XML/SGML/HTML characters `<>&` are not used, so binary
+*  The special XML/SGML/HTML characters `&<>` are not used, so binary
 data can be embedded into these documents.
 
 *  The characters `,;` are not used, which allows the encoding to be

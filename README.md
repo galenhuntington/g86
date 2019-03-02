@@ -6,9 +6,9 @@ Every four binary bytes are encoded into five ASCII characters,
 for about a 25% size increase.
 
 The encoding uses nearly all non-space printable ASCII characters
-(those from codepoints 33 to 126).  It is thus not suitable for
-applications where the allowed characters are more limited.  However,
-some troublesome characters are still avoided:
+(codepoints 33 to 126).  It is thus not suitable for applications where
+the allowed characters are more limited.  However, some troublesome
+characters are still avoided:
 
 *  The quote characters `'"` and not used.  This makes the encoding
 convenient for inlining binary data into source code and formats such
@@ -41,14 +41,14 @@ segment of the binary data.
 
 The most similar encoding to G86 is
 [Z85](https://rfc.zeromq.org/spec:32/Z85/), used in the ZeroMQ project.
-It utilizes the fact that 85<sup>5</sup> > 256<sup>4</sup>, and it
-has a more selective set of 85 characters than the earlier Ascii85.
-However, it lacks many of the above properties: The spec only allows
-input of length a multiple of four, the encoding does not preserve
-lexicographic order, and `<>&` are used.  It _does_ exclude the
-backquote `` ` ``, which G86 does not, since in my view this character
-is less special than the other quotes and less often significant in
-language syntax, and also excludes `_|~`.
+It utilizes the fact that 85⁵ ⩾ 256⁴, and it has a more selective
+set of 85 characters than the earlier Ascii85.  However, it lacks
+many of the above properties: The spec only allows input of length
+a multiple of four, the encoding does not preserve lexicographic
+order, and `<>&` are used.  It _does_ exclude the backquote `` ` ``,
+which G86 does not, since in my view this character is less special
+than the other quotes and less often significant in language syntax,
+and also excludes `_|~`.
 
 The lexicographic and initial segment properties are the reason an
 86th character is added.
@@ -71,9 +71,9 @@ The four bytes, as numbers from 0 to 255, are interpreted as
 base-258 digits in big-endian order.  The integer thus represented
 is then written as five base-86 digits in big-endian order with
 the above ASCII characters, in order, as “digits” for 0 to 85.
-Since 258<sup>4</sup> < 86<sup>5</sup>, it will fit.
+Since 258⁴ ⩽ 86⁵, it will fit.
 
-Since 258 > 256, this encoding can be inverted.
+Since 258 ⩾ 256, this encoding can be inverted.
 
 This completes the spec.
 
@@ -164,12 +164,12 @@ required, block size, properties, and characters used.
 
 ### Future work
 
-There aren't many directions in which the spec could change.  At best,
-one could argue the choice of characters.  Some applications might
+There aren't many directions in which the spec could change.  One could
+for instance argue the choice of characters.  Some applications might
 work better with a different set, although _ad hoc_ simple substitution
 can accommodate such situations.
 
-As an example, `>` is not that special in HTML; it only is relevant
+As an example, `>` is not _that_ special in HTML; it only is relevant
 when in a tag, where there wouldn't be arbitrary data anyway.  So it
 might be preferable to, say, the backquote.  Nevertheless, HTML and
 XML recommendations still say `>` should be encoded.

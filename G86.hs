@@ -2,16 +2,13 @@
 
 module G86 (alphabet, encode, decode) where
 
-import Data.Word (Word8)
 import Data.Int (Int64)
-import Data.Bits
 import Data.String (fromString)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as B
 import Data.ByteString.Lazy (toStrict)
 import Data.ByteString.Builder
 import qualified Data.Vector.Unboxed as V
-import Control.Arrow (first)
 import Data.Foldable (foldl')
 import Data.List (unfoldr)
 import Data.Tuple (swap)

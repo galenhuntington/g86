@@ -5,10 +5,10 @@ to encodings such as hexadecimal or Base64, but is more compact.
 Every four binary bytes are encoded into five ASCII characters,
 for about a 25% size increase.
 
-The encoding uses nearly all printable ASCII characters (those from
-codepoints 33 to 126).  It is thus not suitable for applications where
-the allowed characters are more limited.  However, some troublesome
-characters are still avoided:
+The encoding uses nearly all non-space printable ASCII characters
+(those from codepoints 33 to 126).  It is thus not suitable for
+applications where the allowed characters are more limited.  However,
+some troublesome characters are still avoided:
 
 *  The quote characters `'"` and not used.  This makes the encoding
 convenient for inlining binary data into source code and formats such
@@ -51,14 +51,14 @@ is less special than the other quotes and less often significant in
 language syntax.
 
 The lexicographic and initial segment properties are the reason an
-86th character is needed.
+86th character is added.
 
 ### Spec (v0.1)
 
-The input binary data is broken into four-byte chunks, each of which
-is encoded independently into five characters.  To round up to a
-multiple of four, up to three zero bytes are added; an equal number
-of bytes will then be removed off the end of the final encoding.
+The input is broken into four-byte chunks, each of which is encoded
+independently into five characters.  To round up to a multiple of four,
+up to three zero bytes are added; an equal number of bytes will then
+be removed off the end of the output.
 
 The ASCII characters are drawn from the set of printable characters,
 codepoints 33 to 126, excluding the six `&,;<>\`, for a total of 86:
@@ -67,8 +67,8 @@ codepoints 33 to 126, excluding the six `&,;<>\`, for a total of 86:
 !#$%()*+-./0123456789:=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~
 ```
 
-The four bytes, as numbers from 0 to 255, are interpreted as base-_258_
-“digits” in big-endian order.  The integer thus represented
+The four bytes, as numbers from 0 to 255, are interpreted as
+base-258 digits in big-endian order.  The integer thus represented
 is then written as five base-86 digits in big-endian order with
 the above ASCII characters, in order, as “digits” for 0 to 85.
 Since 258<sup>4</sup> < 86<sup>5</sup>, it will fit.
@@ -143,16 +143,36 @@ The initial segment property also follows, although when decoding a
 partial string we may have to discard information at the end about
 the next byte (or use it, if the partial information is still useful).
 
+As noted, the encoding brings a size increase of approximately
+25%—approximate only because one cannot have a fractional character.
+In comparison, hexadecimal is 100%, and Base64 about 33.3%.  Z85 is
+also 25%, when it can be used.  There are many other encodings for
+when other character sets, usually smaller, are desired.
+
+The theoretical limit would be to use all printable ASCII codepoints,
+expanding about 21.8%.  Approaching this requires complex encodings
+with large block sizes.  E.g., one can get 22.2% by encoding nine bytes
+into eleven characters, and more complexity and heavy calculation must
+be added if the above properties are desired.  But it would be an odd
+case to be willing to accept all of, but only, ASCII, and to tolerate
+a difficult encoding, just to squeeze those last percentage points.
+
+I thus regard G86 as a local optimum among “nearly-all-ASCII”
+encodings.  It rates high on space usage, simplicity, calculation
+required, block size, properties, and characters used.
+
 
 ### Future work
 
-The part of the spec most likely to be reconsidered is the choice of
-characters.  Some applications might work better with a different set,
-although _ad hoc_ simple substitution can accommodate such situations.
+There aren't many directions in which the spec could change.  At best,
+one could argue the choice of characters.  Some applications might
+work better with a different set, although _ad hoc_ simple substitution
+can accommodate such situations.
 
-One example is that `>` is not that special in HTML; it only is
-relevant when in a tag, where there wouldn't be arbitrary data anyway.
-So perhaps it is preferable to the backquote.
+As an example, `>` is not that special in HTML; it only is relevant
+when in a tag, where there wouldn't be arbitrary data anyway.  So it
+might be preferable to, say, the backquote.  Nevertheless, HTML and
+XML recommendations still say `>` should be encoded.
 
 
 ### Implementation
@@ -166,11 +186,11 @@ g86 < data.bin > data.txt
 g86 -d < data.txt > data.bin
 ```
 
-One limitation is that it is not streaming.  The whole file is loaded
+One limitation is that it is not streaming; the whole file is loaded
 into memory before decoding, so very large files or an “infinite”
-stream may present problems.  This is not an essential limitation of
-the spec, but is used in the reference implementation because it is
-more convenient and the main use case is small amounts of binary data.
+stream may present problems.  This is not inherent to the encoding,
+but is done in the reference implementation because it is more
+convenient and the main use case is small amounts of binary data.
 
 Either `cabal install` or `stack install` can be used to build.
 

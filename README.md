@@ -48,7 +48,7 @@ input of length a multiple of four, the encoding does not preserve
 lexicographic order, and `<>&` are used.  It _does_ exclude the
 backquote `` ` ``, which G86 does not, since in my view this character
 is less special than the other quotes and less often significant in
-language syntax.
+language syntax, and also excludes `_|~`.
 
 The lexicographic and initial segment properties are the reason an
 86th character is added.

@@ -1,4 +1,4 @@
-import G86
+import Codec.G86
 import System.IO
 import System.Environment
 import qualified Data.ByteString as B

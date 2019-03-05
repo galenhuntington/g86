@@ -1,6 +1,6 @@
 --  Implements the G86 encoding.
 
-module G86 (alphabet, encode, decode) where
+module Codec.G86 (alphabet, encode, decode) where
 
 import Data.Int (Int64)
 import Data.String (fromString)

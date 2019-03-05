@@ -3,7 +3,7 @@ import Control.Monad (when, unless)
 import Data.String (fromString)
 import Test.QuickCheck
 
-import qualified G86
+import qualified Codec.G86 as G86
 
 instance Arbitrary B.ByteString where arbitrary = fmap fromString arbitrary
 

@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e57baffead56d32819d6c4f601560be41201f7ed069beea41027ebf2032125a4
+-- hash: ae05bab929c88aed6a16ed8e6c5a4bace2de36177e7a4b6b4610a32573ef0407
 
 name:           g86
-version:        0.1.0
+version:        0.2.0
 synopsis:       G86 encoding.
 category:       Codec
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
@@ -17,7 +17,7 @@ build-type:     Simple
 
 library
   exposed-modules:
-      G86
+      Codec.G86
   other-modules:
       Paths_g86
   hs-source-dirs:
@@ -31,7 +31,7 @@ library
 executable g86
   main-is: main.hs
   other-modules:
-      G86
+      Codec.G86
       Paths_g86
   hs-source-dirs:
       ./.
@@ -46,7 +46,7 @@ test-suite suite
   type: exitcode-stdio-1.0
   main-is: test.hs
   other-modules:
-      G86
+      Codec.G86
       Paths_g86
   hs-source-dirs:
       ./.

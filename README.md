@@ -10,16 +10,16 @@ The encoding uses nearly all non-space printable ASCII characters
 the allowed characters are more limited.  However, some troublesome
 characters are still avoided:
 
-*  The quote characters `"'` and not used.  This makes the encoding
+*  The quote characters `"'` are not used.  This makes the encoding
 convenient for inlining binary data into source code and formats such
 as JSON.
 
-*  The backslash `\` is not used.  The backslash is widely used for
-escaping, even within quotes, in programming languages, mark-up,
+*  The backslash `\` is not used.  The backslash is widely utilized
+for escaping, even within quotes, in programming languages, mark-up,
 and data serialization.
 
 *  The special XML/SGML/HTML characters `&<>` are not used, so binary
-data can be embedded into these documents.
+data can be embedded in these documents.
 
 *  The characters `,;` are not used, which allows the encoding to be
 used in HTTP cookies.
@@ -43,7 +43,7 @@ The most similar encoding to G86 is
 [Z85](https://rfc.zeromq.org/spec:32/Z85/), used in the ZeroMQ project.
 It utilizes the fact that 85⁵ ⩾ 256⁴, and it has a more selective
 set of 85 characters than the earlier Ascii85.  However, it lacks
-many of the above properties: The spec only allows input of length
+many of the above properties: the spec only allows input of length
 a multiple of four, the encoding does not preserve lexicographic
 order, and `<>&` are used.  It _does_ exclude the backquote `` ` ``,
 which G86 does not, since in my view this character is less special

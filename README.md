@@ -15,8 +15,7 @@ convenient for inlining binary data into source code and formats such
 as JSON.
 
 *  The backslash `\` is not used.  The backslash is widely utilized
-for escaping, even within quotes, in programming languages, mark-up,
-and data serialization.
+for escaping in programming languages, mark-up, and data serialization.
 
 *  The special XML/SGML/HTML characters `&<>` are not used, so binary
 data can be embedded in these documents.
@@ -147,8 +146,9 @@ the next byte (or use it, if the partial information is still useful).
 As noted, the encoding brings a size increase of approximately
 25%—approximate only because one cannot have a fractional character.
 In comparison, hexadecimal is 100%, and Base64 about 33.3%.  Z85 is
-also 25%, when it can be used.  There are many other encodings for
-when other character sets, usually smaller, are desired.
+also 25%, when it can be used.  There are many others, generally
+for when different character sets are desired.  E.g., the more
+human-friendly Crockford base32 has a 60% size increase.
 
 The theoretical limit would be to use all 95 printable ASCII
 codepoints, expanding about 21.8%, or even add the newline character

@@ -150,9 +150,10 @@ In comparison, hexadecimal is 100%, and Base64 about 33.3%.  Z85 is
 also 25%, when it can be used.  There are many other encodings for
 when other character sets, usually smaller, are desired.
 
-The theoretical limit would be to use all printable ASCII codepoints,
-expanding about 21.8%.  Approaching this requires complex encodings
-with large block sizes.  E.g., one can get 22.2% by encoding nine bytes
+The theoretical limit would be to use all 95 printable ASCII
+codepoints, expanding about 21.8%, or even add the newline character
+for 96 and 21.5%.  Approaching this requires complex encodings with
+large block sizes.  E.g., one can get 22.2% by encoding nine bytes
 into eleven characters, and more complexity and heavy calculation must
 be added if the above properties are desired.  But it would be an odd
 case to be willing to accept all of, but only, ASCII, and to tolerate

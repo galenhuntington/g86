@@ -1,7 +1,7 @@
 name: g86
 version: 0.2.0
 synopsis: G86 encoding.
-maintainer: Galen Huntington <galen@alumni.reed.edu>
+author: Galen Huntington <galen@alumni.reed.edu>
 license: MIT
 category: Codec
 

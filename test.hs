@@ -32,7 +32,7 @@ main = do
    let checkeq err a b = do
          putStr (show a) >> putStr " == " >> print b
          when (a/=b) $ error err
-   let check err test = flip when (error "Inversion failure.") =<< do
+   let check err test = flip when (error err) =<< do
          not . isSuccess <$> test
 
    --  Check examples from spec.

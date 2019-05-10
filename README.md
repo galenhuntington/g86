@@ -40,10 +40,10 @@ segment of the binary data.
 
 The most similar encoding to G86 is
 [Z85](https://rfc.zeromq.org/spec:32/Z85/), used in the ZeroMQ project.
-It utilizes the fact that 85⁵ ⩾ 256⁴, and it has a more selective
-set of 85 characters than the earlier Ascii85.  However, it lacks
-many of the above properties: the spec only allows input of length
-a multiple of four, the encoding does not preserve lexicographic
+It utilizes the fact that 85⁵ ⩾ 256⁴, and it has a more
+selective set of 85 characters than the earlier Ascii85.  However,
+it lacks many of the above properties: the spec only allows input of
+length a multiple of four, the encoding does not preserve lexicographic
 order, and `<>&` are used.  It _does_ exclude the backquote `` ` ``,
 which G86 does not, since in my view this character is less special
 than the other quotes and less often significant in language syntax,
@@ -115,8 +115,8 @@ Put together, here is the whole G86 encoding:
 Its length is 17 = ⌈5⋅13/4⌉ characters.
 
 A use case is representing a 128-bit (or longer) key or identifier.
-The 16 bytes expand to 20 characters.  Similarly, a 256-bit key would
-be 40 characters.  For example, consider the common example of the
+The 16 bytes expand to 20 characters.  A 256-bit key would be
+40 characters.  As an example, consider the common example of the
 hexadecimal digits of π:
 
 ```

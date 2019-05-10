@@ -1,15 +1,16 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.1.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ae05bab929c88aed6a16ed8e6c5a4bace2de36177e7a4b6b4610a32573ef0407
+-- hash: f1b74d39ce5a5a01fe996a76dbbfba6a691a8f74a895a3c033e1eaa6bf2a106d
 
 name:           g86
 version:        0.2.0
 synopsis:       G86 encoding.
 category:       Codec
+author:         Galen Huntington <galen@alumni.reed.edu>
 maintainer:     Galen Huntington <galen@alumni.reed.edu>
 license:        MIT
 license-file:   LICENSE

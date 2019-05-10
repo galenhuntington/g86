@@ -52,6 +52,9 @@ and also excludes `_|~`.
 The lexicographic and initial segment properties are the reason an
 86th character is added.
 
+For encodings along similar lines that only use alphanumeric
+characters, see [G43 and G56](https://github.com/galenhuntington/g56).
+
 ### Spec (v0.1)
 
 The input is broken into four-byte chunks, each of which is encoded
@@ -121,7 +124,7 @@ hexadecimal digits of π:
 a4 09 38 22 29 9f 31 d0 08 2e fa 98 ec 4e 6c 89
 ```
 
-Its G86 encoding:
+The G86 encoding of these bytes:
 
 ```
 0H_fZQ{)BO)~boV#*k#m[R{{J2)ahL$Xwhks56l[
@@ -148,7 +151,7 @@ As noted, the encoding brings a size increase of approximately
 In comparison, hexadecimal is 100%, and Base64 about 33.3%.  Z85 is
 also 25%, when it can be used.  There are many others, generally
 for when different character sets are desired.  E.g., the more
-human-friendly Crockford base32 has a 60% size increase.
+human-friendly Crockford Base 32 has a 60% size increase.
 
 The theoretical limit would be to use all 95 printable ASCII
 codepoints, expanding about 21.8%, or even add the newline character
@@ -183,7 +186,7 @@ The reference implementation is written in Haskell, and provides a
 basic Haskell API and a command-line executable.  The executable has
 a very simple interface:
 
-```
+```bash
 g86 < data.bin > data.txt
 g86 -d < data.txt > data.bin
 ```

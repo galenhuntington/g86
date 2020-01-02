@@ -55,7 +55,7 @@ The lexicographic and initial segment properties are the reason an
 For encodings along similar lines that only use alphanumeric
 characters, see [G43 and G56](https://github.com/galenhuntington/g56).
 
-### Spec (v0.1)
+### Spec (v0.1.1)
 
 The input is broken into four-byte chunks, each of which is encoded
 independently into five characters.  To round up to a multiple of four,
@@ -63,8 +63,8 @@ up to three zero bytes are added; an equal number of bytes will then
 be removed off the end of the output.
 
 The ASCII characters are drawn from the set of non-space printable
-characters, codepoints 33 to 126, excluding the six `&,;<>\`, for a
-total of 86:
+characters, codepoints 33 to 126, excluding the eight `&,;<>\'"`,
+for a total of 86:
 
 ```
 !#$%()*+-./0123456789:=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~

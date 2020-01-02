@@ -63,7 +63,7 @@ up to three zero bytes are added; an equal number of bytes will then
 be removed off the end of the output.
 
 The ASCII characters are drawn from the set of non-space printable
-characters, codepoints 33 to 126, excluding the eight `&,;<>\'"`,
+characters, codepoints 33 to 126, excluding the eight `"&',;<>\`,
 for a total of 86:
 
 ```

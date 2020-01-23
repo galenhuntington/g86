@@ -52,8 +52,8 @@ and also excludes `_|~`.
 The lexicographic and initial segment properties are the reason an
 86th character is added.
 
-For encodings along similar lines that only use alphanumeric
-characters, see [G43 and G56](https://github.com/galenhuntington/g56).
+For an encoding that uses only use alphanumeric characters, see
+[G60](https://github.com/galenhuntington/g60).
 
 ### Spec (v0.1.1)
 

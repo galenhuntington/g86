@@ -32,6 +32,7 @@ dmap = V.replicate 127 (-1) `V.update` V.map swap' (V.indexed emap)
 pow3 :: Int -> Int64
 pow3 = V.unsafeIndex $ V.iterateN 4 (*3) 1
 
+{-# INLINE __ #-}
 __ = True
 
 

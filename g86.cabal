@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f1b74d39ce5a5a01fe996a76dbbfba6a691a8f74a895a3c033e1eaa6bf2a106d
+-- hash: da2ccb5032d2d8c76a87b275c9744d6c68b7e07654fae5e738a58b54ff42c947
 
 name:           g86
 version:        0.2.0
@@ -22,11 +22,11 @@ library
   other-modules:
       Paths_g86
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       base >=4.9 && <5
-    , bytestring >=0.10 && <0.11
-    , vector >=0.12 && <0.13
+    , bytestring >=0.10 && <0.12
+    , vector ==0.12.*
   default-language: Haskell2010
 
 executable g86
@@ -35,12 +35,12 @@ executable g86
       Codec.G86
       Paths_g86
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       base >=4.9 && <5
-    , bytestring >=0.10 && <0.11
-    , split >=0.2 && <0.3
-    , vector >=0.12 && <0.13
+    , bytestring >=0.10 && <0.12
+    , split ==0.2.*
+    , vector ==0.12.*
   default-language: Haskell2010
 
 test-suite suite
@@ -50,10 +50,10 @@ test-suite suite
       Codec.G86
       Paths_g86
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       QuickCheck >=2.12.6.1
     , base >=4.9 && <5
-    , bytestring >=0.10 && <0.11
-    , vector >=0.12 && <0.13
+    , bytestring >=0.10 && <0.12
+    , vector ==0.12.*
   default-language: Haskell2010

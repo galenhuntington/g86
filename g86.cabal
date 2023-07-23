@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: da2ccb5032d2d8c76a87b275c9744d6c68b7e07654fae5e738a58b54ff42c947
+-- hash: 77ebeef6ade3b9792443c1f7e65ac23c0233a4ef274a11713d8ea157f81154c9
 
 name:           g86
 version:        0.2.0
@@ -26,7 +26,7 @@ library
   build-depends:
       base >=4.9 && <5
     , bytestring >=0.10 && <0.12
-    , vector ==0.12.*
+    , vector >=0.12 && <0.14
   default-language: Haskell2010
 
 executable g86
@@ -40,7 +40,7 @@ executable g86
       base >=4.9 && <5
     , bytestring >=0.10 && <0.12
     , split ==0.2.*
-    , vector ==0.12.*
+    , vector >=0.12 && <0.14
   default-language: Haskell2010
 
 test-suite suite
@@ -55,5 +55,5 @@ test-suite suite
       QuickCheck >=2.12.6.1
     , base >=4.9 && <5
     , bytestring >=0.10 && <0.12
-    , vector ==0.12.*
+    , vector >=0.12 && <0.14
   default-language: Haskell2010
